@@ -13,7 +13,7 @@ jobs:
   pre-job: # name of the job
     runs-on: ubuntu-latest
     outputs:
-      teams: ${{ steps.step1.outputs.teams }}
+      teams: ${{ steps.check.outputs.teams }}
     steps:
     - name: Say Hi
       run: echo "Hi there !"
