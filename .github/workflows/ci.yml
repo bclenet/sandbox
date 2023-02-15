@@ -11,7 +11,7 @@ env: # = variables
 
 jobs:
   pre-job: # name of the job
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Say Hi
@@ -34,7 +34,7 @@ jobs:
 
   display-job:
     needs: pre-job
-    runs-on: alpine-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Display team ids & associated test files
