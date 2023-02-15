@@ -5,9 +5,9 @@ on:
     branches:
       - dev
 
-env: # = variables
-  TEAMS : ""
-  TEST_FILES : ""
+#env: # = constants
+#  TEAMS : ""
+#  TEST_FILES : ""
 
 jobs:
   pre-job: # name of the job
@@ -25,10 +25,13 @@ jobs:
 
             tmp=${file#*"team_"} # remove prefix ending in "team_"
             team_id=${tmp%".py"*}   # remove suffix starting with ".py"
-            TEAMS="$TEAMS $team_id"
+            teams="$teams $team_id"
           fi
         done
-        echo $TEAMS
+        echo $teams
+    - name: Output teams
+      id: pre-job-output
+      run: echo "TEAMS=$teams" >> $GITHUB_OUTPUT
 
   display-job:
     needs: pre-job
@@ -37,7 +40,7 @@ jobs:
     steps:
     - name: Display team ids & associated test files
       run: |
-        for team_id in $TEAMS
+        for team_id in ${{ steps.pre-job-output.outputs.TEAMS }}
         do
           TEST_FILES="$TEST_FILES tests/pipelines/test_team_$team_id.py"
         done
