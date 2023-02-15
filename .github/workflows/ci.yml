@@ -36,7 +36,6 @@ jobs:
   display-job:
     needs: pre-job
     runs-on: ubuntu-latest
-
     steps:
     - name: Display team ids & associated test files
       run: |
