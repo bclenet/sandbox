@@ -1,0 +1,14 @@
+name: changes
+
+on:
+  push:
+    paths:
+      - 'lib/**'
+      - '!lib/pipelines/**'
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Say Hi
+      run: echo "Hi there !"
