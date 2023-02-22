@@ -1,0 +1,14 @@
+name: git-diff-test
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  jobi-joba: # name of the job
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check teams that changed
+      id: check
+      run: echo $(git diff --name-only origin/main...$GITHUB_SHA)
