@@ -5,5 +5,9 @@ def function_test():
     test = 50
     print(test)
 
+def test_unit():
+    """ A false unit test """
+    assert True
+
 if __name__ == '__main__':
     function_test()
