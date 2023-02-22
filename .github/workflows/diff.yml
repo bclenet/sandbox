@@ -9,6 +9,9 @@ jobs:
   jobi-joba: # name of the job
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: List branches
+      run:  git branch -a
     - name: Check teams that changed
-      id: check
       run: echo $(git diff --name-only origin/main...$GITHUB_SHA)
