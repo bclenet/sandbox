@@ -1,0 +1,10 @@
+name: push
+
+on: push
+
+jobs:
+  pr-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Say Hi
+      run: echo "Run by push"
