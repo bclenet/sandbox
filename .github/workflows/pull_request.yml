@@ -1,0 +1,10 @@
+name: pull_request
+
+on: pull_request
+
+jobs:
+  pr-job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Say Hi
+      run: echo "Run by pull_request"
