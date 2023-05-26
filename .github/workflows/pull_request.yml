@@ -8,3 +8,13 @@ jobs:
     steps:
     - name: Say Hi
       run: echo "Run by pull_request"
+
+  message-job:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: mshick/add-pr-comment@v2
+        with:
+          message: |
+            Type your message here
