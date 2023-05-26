@@ -23,4 +23,4 @@ jobs:
       - uses: mshick/add-pr-comment@v2
         with:
           message: |
-            The value is : ${{ needs.pre-job.outputs.teams }}
+            The value is : ${{ needs.pr-job.outputs.teams }}
