@@ -5,11 +5,17 @@ on: pull_request
 jobs:
   pr-job:
     runs-on: ubuntu-latest
+    outputs:
+      teams: ${{ steps.hi.outputs.teams }}
     steps:
     - name: Say Hi
-      run: echo "Run by pull_request"
+      id: hi
+      run: |
+        echo "Run by pull_request"
+        echo "teams=05462315" >> $GITHUB_OUTPUT
 
   message-job:
+    needs: pr-job
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -17,4 +23,4 @@ jobs:
       - uses: mshick/add-pr-comment@v2
         with:
           message: |
-            Type your message here
+            The value is : ${{ needs.pre-job.outputs.teams }}
