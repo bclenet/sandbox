@@ -8,7 +8,8 @@ jobs:
     outputs:
       teams: ${{ steps.hi.outputs.teams }}
     steps:
-    - uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
     - name: Say Hi
       id: hi
       run: |
@@ -21,7 +22,7 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
         echo "| Month    | Savings |" >> $GITHUB_STEP_SUMMARY
         echo "| -------- | ------- |" >> $GITHUB_STEP_SUMMARY
-        cat ./test_file.txt >> $GITHUB_STEP_SUMMARY
+        cat test_file.txt >> $GITHUB_STEP_SUMMARY
 
   message-job:
     needs: pr-job
