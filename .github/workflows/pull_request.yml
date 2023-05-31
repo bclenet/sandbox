@@ -8,6 +8,7 @@ jobs:
     outputs:
       teams: ${{ steps.hi.outputs.teams }}
     steps:
+    - uses: actions/checkout@v3
     - name: Say Hi
       id: hi
       run: |
