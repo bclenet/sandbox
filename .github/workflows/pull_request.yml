@@ -8,8 +8,12 @@ jobs:
     outputs:
       teams: ${{ steps.hi.outputs.teams }}
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - name: Create file
+      run: |
+        echo "| June | 153 |" > test_file.txt
+        echo "| July | 156 |" >> test_file.txt
+        echo "| August | 164 |" >> test_file.txt
+        echo "| September | 50 |" >> test_file.txt
     - name: Say Hi
       id: hi
       run: |
