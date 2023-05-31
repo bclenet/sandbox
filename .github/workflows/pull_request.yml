@@ -17,6 +17,10 @@ jobs:
         echo ":rocket: `pr-job` summary :rocket:" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
         echo "- value is $teams" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+        echo "| Month    | Savings |" >> $GITHUB_STEP_SUMMARY
+        echo "| -------- | ------- |" >> $GITHUB_STEP_SUMMARY
+        cat test_file.txt >> $GITHUB_STEP_SUMMARY
 
   message-job:
     needs: pr-job
