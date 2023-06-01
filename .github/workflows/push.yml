@@ -11,3 +11,7 @@ jobs:
     steps:
     - name: Say Hi
       run: echo "Run by push"
+    - name: Get config
+      run: |
+        echo ${{ vars.TEST_CONFIG }} > test_gonfig.toml
+        cat test_gonfig.toml
