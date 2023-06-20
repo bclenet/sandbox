@@ -1,14 +1,14 @@
-| team_id | status :green_circle:=completed, :orange_circle:=almost there, :red_circle:=not started | softwares used | fmriprep used ? | related issues |
+| team_id | status <br>:green_circle: completed <br>:orange_circle: almost there <br>:red_circle: not started | softwares used | fmriprep used ? | related issues |
 | --- |--- | --- | --- | --- |
 | 08MQ | :red_circle: | FSL | No | |
 | 0C7Q | :red_circle: | FSL, AFNI | Yes | |
 | 0ED6 | :red_circle: | SPM | No | |
 | 0H5E | :red_circle: | SPM | No | |
-| 0I4U | :red_circle: | SPM | No | [3](https://api.github.com/repos/Inria-Empenn/narps_open_pipelines/issues/3) |
+| 0I4U | :red_circle: | SPM | No | [3](https://github.com/Inria-Empenn/narps_open_pipelines/issues/3) |
 | 0JO0 | :red_circle: | nistats | Yes | |
 | 16IN | :red_circle: | matlab; SPM; Microsoft R Open; TExPosition; neuroim | Yes | |
 | 1K0E | :red_circle: | nistats, FSL, HCP Workbench | No, but we did use fmriprep 1.1.8 | |
-| 1KB2 | :red_circle: | FSL | No | [3](https://api.github.com/repos/Inria-Empenn/narps_open_pipelines/issues/3) |
+| 1KB2 | :red_circle: | FSL | No | [3](https://github.com/Inria-Empenn/narps_open_pipelines/issues/3) |
 | 1P0Y | :red_circle: | SPM | No | |
 | 27SS | :red_circle: | AFNI | No | |
 | 2T6S | :green_circle: | SPM | Yes | |
@@ -16,10 +16,10 @@
 | 3C6G | :red_circle: | SPM | No | |
 | 3PQ2 | :red_circle: | FSL | No | |
 | 3TR7 | :red_circle: | SPM | Yes | |
-| 43FJ | :red_circle: | FSL | No | [3](https://api.github.com/repos/Inria-Empenn/narps_open_pipelines/issues/3) |
+| 43FJ | :red_circle: | FSL | No | [3](https://github.com/Inria-Empenn/narps_open_pipelines/issues/3) |
 | 46CD | :red_circle: | SPM, AFNI | No | |
 | 4SZ2 | :red_circle: | FSL | Yes | |
-| 4TQ6 | :red_circle: | FSL | Yes | [3](https://api.github.com/repos/Inria-Empenn/narps_open_pipelines/issues/3) |
+| 4TQ6 | :red_circle: | FSL | Yes | [3](https://github.com/Inria-Empenn/narps_open_pipelines/issues/3) |
 | 50GV | :red_circle: | FSL | Yes | |
 | 51PW | :red_circle: | FSL | Yas | |
 | 5G9K | :red_circle: | SPM | Yes | |
@@ -61,7 +61,7 @@
 | R9K3 | :red_circle: | SPM | Yes | |
 | SM54 | :red_circle: | nistats | Yes | |
 | T54A | :red_circle: | FSL | Yes | |
-| U26C | :red_circle: | SPM | Yes | [21](https://api.github.com/repos/Inria-Empenn/narps_open_pipelines/issues/21) |
+| U26C | :red_circle: | SPM | Yes | [21](https://github.com/Inria-Empenn/narps_open_pipelines/pull/21) |
 | UI76 | :red_circle: | AFNI | Yes | |
 | UK24 | :red_circle: | SPM | No | |
 | V55J | :red_circle: | SPM | No | |
