@@ -58,7 +58,7 @@
 | R42Q | :red_circle: | FSL, SPM, AFNI, nistats | No | |
 | R5K7 | :red_circle: | SPM | No | |
 | R7D1 | :red_circle: | FSL, AFNI | Yes | |
-| R9K3 | :red_circle: | SPM | Yes | |
+| R9K3 | :orange_circle: | SPM | Yes | |
 | SM54 | :red_circle: | nistats | Yes | |
 | T54A | :red_circle: | FSL | Yes | |
 | U26C | :orange_circle: | SPM | Yes | [21](https://github.com/Inria-Empenn/narps_open_pipelines/pull/21) |
