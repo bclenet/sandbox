@@ -27,7 +27,7 @@
 | 6VV2 | :red_circle: | AFNI | No  | |
 | 80GC | :red_circle: | AFNI | Yes | |
 | 94GU | :red_circle: | SPM | No | |
-| 98BT | :red_circle: | SPM | No | |
+| 98BT | :orange_circle: | SPM | No | |
 | 9Q6R | :red_circle: | FSL | No | |
 | 9T8E | :red_circle: | SPM | Yes | |
 | 9U7M | :red_circle: | nistats | No | |
@@ -35,7 +35,7 @@
 | B23O | :red_circle: | FSL | Yes  | |
 | B5I6 | :red_circle: | FSL | Yes | |
 | C22U | :red_circle: | FSL | No | |
-| C88N | :red_circle: | SPM | Yes | |
+| C88N | :orange_circle: | SPM | Yes | |
 | DC61 | :red_circle: | SPM | Yes | |
 | E3B6 | :red_circle: | SPM | Yes | |
 | E6R3 | :red_circle: | AFNI, other | Yes | |
@@ -43,7 +43,7 @@
 | I52Y | :red_circle: | FSL | No | |
 | I9D6 | :red_circle: | AFNI | No, we used AFNI's afni_proc.py tool (in conjunction with other AFNI software and FreeSurfer) to carry out the pre-processing and analysis (mostly) in the same analysis run for each subject. | |
 | IZ20 | :red_circle: | SPM, AFNI | No | |
-| J7F9 | :red_circle: | SPM | Yes | |
+| J7F9 | :orange_circle: | SPM | Yes | |
 | K9P0 | :red_circle: | AFNI | Yes | |
 | L1A8 | :red_circle: | SPM | No | |
 | L3V8 | :red_circle: | SPM | No | |
@@ -54,19 +54,19 @@
 | O6R6 | :red_circle: | FSL | Yes | |
 | P5F3 | :red_circle: | FSL | No | |
 | Q58J | :red_circle: | FSL | No | |
-| Q6O0 | :red_circle: | SPM | Yes | |
+| Q6O0 | :orange_circle: | SPM | Yes | |
 | R42Q | :red_circle: | FSL, SPM, AFNI, nistats | No | |
 | R5K7 | :red_circle: | SPM | No | |
 | R7D1 | :red_circle: | FSL, AFNI | Yes | |
 | R9K3 | :orange_circle: | SPM | Yes | |
 | SM54 | :red_circle: | nistats | Yes | |
-| T54A | :red_circle: | FSL | Yes | |
+| T54A | :orange_circle: | FSL | Yes | |
 | U26C | :orange_circle: | SPM | Yes | [21](https://github.com/Inria-Empenn/narps_open_pipelines/pull/21) |
 | UI76 | :red_circle: | AFNI | Yes | |
 | UK24 | :red_circle: | SPM | No | |
-| V55J | :red_circle: | SPM | No | |
+| V55J | :orange_circle: | SPM | No | |
 | VG39 | :red_circle: | SPM | Yes | |
-| X19V | :red_circle: | FSL | Yes | |
+| X19V | :orange_circle: | FSL | Yes | |
 | X1Y5 | :red_circle: | FSL, AFNI | Yes | |
 | X1Z4 | :red_circle: | FSL, HCP Workbench | No | |
 | XU70 | :red_circle: | FSL | No | |
