@@ -27,8 +27,8 @@ body:
       options:
         - raw data
         - derivatives (fMRIprep)
-      validations:
-        required: true
+    validations:
+      required: true
 
   - type: textarea
     id: context
@@ -41,7 +41,6 @@ body:
 
   - type: markdown
     attributes:
-      label: Reminder
       value: |
         Please tick the boxes below once you finish the corresponding task. :+1:
         - [ ] :deciduous_tree: Create a branch on your fork to start the reproduction.
