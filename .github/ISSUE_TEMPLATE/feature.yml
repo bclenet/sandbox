@@ -10,7 +10,7 @@ body:
   - type: input
     id: team_id
     attributes:
-      label: Team ID
+      label: "Goal :bulb:"
       description: Please write the id of the team you want to reproduce the pipeline from.
       placeholder: ex. 2T6S
     validations:
