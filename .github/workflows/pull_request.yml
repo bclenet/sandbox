@@ -5,11 +5,31 @@ on: pull_request
 jobs:
   pr-job:
     runs-on: ubuntu-latest
+    outputs:
+      teams: ${{ steps.hi.outputs.teams }}
     steps:
+    - name: Create file
+      run: |
+        echo "| June | 153 |" > test_file.txt
+        echo "| July | 156 |" >> test_file.txt
+        echo "| August | 164 |" >> test_file.txt
+        echo "| September | 50 |" >> test_file.txt
     - name: Say Hi
-      run: echo "Run by pull_request"
+      id: hi
+      run: |
+        echo "Run by pull_request"
+        teams=05462315
+        echo "teams=$teams" >> $GITHUB_OUTPUT
+        echo ":rocket: `pr-job` summary :rocket:" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+        echo "- value is $teams" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+        echo "| Month    | Savings |" >> $GITHUB_STEP_SUMMARY
+        echo "| -------- | ------- |" >> $GITHUB_STEP_SUMMARY
+        cat test_file.txt >> $GITHUB_STEP_SUMMARY
 
   message-job:
+    needs: pr-job
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
@@ -17,4 +37,4 @@ jobs:
       - uses: mshick/add-pr-comment@v2
         with:
           message: |
-            Type your message here
+            The value is : ${{ needs.pr-job.outputs.teams }}
