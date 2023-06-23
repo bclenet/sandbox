@@ -9,6 +9,9 @@ on:
     branches:
       - dev
 
+permissions:
+  repository-projects: write
+
 # Jobs that define the workflow
 jobs:
 
@@ -24,8 +27,6 @@ jobs:
         path: wiki
 
     - name: Update the wiki file with new pipeline statuses
-      permissions:
-        repository-projects: write
       run: |
         echo "wiki" > wiki/pipeline_status.md
         cd wiki
