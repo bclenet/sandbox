@@ -28,6 +28,8 @@ jobs:
         path: wiki
 
     - name: Update the wiki file with new pipeline statuses
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "wiki" > wiki/pipeline_status.md
         cd wiki
