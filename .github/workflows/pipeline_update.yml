@@ -24,6 +24,8 @@ jobs:
         path: wiki
 
     - name: Update the wiki file with new pipeline statuses
+      permissions:
+        repository-projects: write
       run: |
         echo "wiki" > wiki/pipeline_status.md
         cd wiki
@@ -31,9 +33,4 @@ jobs:
         git config --local user.name "GitHub Action"
         git add .
         git commit -m "Pipeline status updated"
-
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.PERSONAL_TOKEN }}
-        directory: wiki
+        git push
