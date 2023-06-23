@@ -27,6 +27,8 @@ jobs:
       run: |
         echo "wiki" > wiki/pipeline_status.md
         cd wiki
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         git add .
         git commit -m "Pipeline status updated"
 
