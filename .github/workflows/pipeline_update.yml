@@ -17,16 +17,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout repo
+    - name: Checkout wiki
       uses: actions/checkout@v3
       with:
-        repository: ${{github.repository}}
+        repository: ${{github.repository}}.wiki
+        path: wiki
 
     - name: Update the wiki file with new pipeline statuses
       run: |
-        echo "wiki" > pipeline_status.md
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        echo "wiki" > wiki/pipeline_status.md
+        cd wiki
+        git config user.name github-actions
+        git config user.email github-actions@github.com
         git add .
         git commit -m "Pipeline status updated"
         git push
