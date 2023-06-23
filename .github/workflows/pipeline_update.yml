@@ -1,0 +1,38 @@
+## Disclaimer - This GitHub Actions workflow updates the  work progress status for pipelines.
+
+# Name the workflow
+name: pipeline_status
+
+# Define when it runs
+on:
+  push:
+    paths:
+      - 'narps_open/pipelines/team**'
+    branches:
+      - main
+  issues:
+    types: [opened, edited, reopened]
+
+# Jobs that define the workflow
+jobs:
+
+  # A job to update the pipelines statuses
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout wiki
+      uses: actions/checkout@v3
+      with:
+        repository: ${{github.repository}}.wiki
+        path: wiki
+
+    - name: Update the wiki file with new pipeline statuses
+      run: |
+        echo "wiki" > wiki/pipeline_status.md
+        cd wiki
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -m "Pipeline status updated"
+        git push
