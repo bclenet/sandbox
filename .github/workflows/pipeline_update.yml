@@ -6,12 +6,8 @@ name: pipeline_status
 # Define when it runs
 on:
   push:
-    paths:
-      - 'narps_open/pipelines/team**'
     branches:
-      - main
-  issues:
-    types: [opened, edited, reopened]
+      - dev
 
 # Jobs that define the workflow
 jobs:
