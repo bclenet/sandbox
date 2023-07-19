@@ -11,6 +11,8 @@ jobs:
     steps:
     - name: Say Hi
       run: echo "Run by push"
+    - name: Get version
+      run: ls /data/original/ds001734/
     - name: Get config
       run: |
         echo "${{ vars.TEST_CONFIG }}" > test_gonfig.toml
