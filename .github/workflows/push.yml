@@ -7,16 +7,10 @@ on:
 
 jobs:
   pr-job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Say Hi
       run: echo "Run by push"
-    - name: Get version
-      run: ls /data/original/ds001734/
-    - name: Get config
-      run: |
-        echo "${{ vars.TEST_CONFIG }}" > test_gonfig.toml
-        cat test_gonfig.toml
     - name: Write to GITHUB_ENV
       run: |
         team="2T6S"
@@ -24,7 +18,7 @@ jobs:
         echo "report_team-$team=$report_value" >> $GITHUB_ENV
 
   post-job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     needs: pr-job
     steps:
     - name: Retrieve value from GITHUB_ENV
