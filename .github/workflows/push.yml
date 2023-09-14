@@ -17,3 +17,17 @@ jobs:
       run: |
         echo "${{ vars.TEST_CONFIG }}" > test_gonfig.toml
         cat test_gonfig.toml
+    - name: Write to GITHUB_ENV
+      run: |
+        team="2T6S"
+        report_value="test"
+        echo "report_team-$team=$report_value" >> $GITHUB_ENV
+
+  post-job:
+    runs-on: self-hosted
+    needs: pr-job
+    steps:
+    - name: Retrieve value from GITHUB_ENV
+      run: |
+        team="2T6S"
+        echo $(report_team-$team)
