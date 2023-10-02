@@ -41,7 +41,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> $GITHUB_STEP_SUMMARY
 
         # Loop through test report files
-        echo $report_team >> $GITHUB_STEP_SUMMARY
+        echo "$report_team" >> $GITHUB_STEP_SUMMARY
 
     - name: Checkout wiki
       uses: actions/checkout@v3
@@ -60,7 +60,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> wiki/pipeline_test.md
 
         # Retrieve the report from GITHUB_ENV, as set up by the pytest job
-        echo $report_team >> wiki/pipeline_test.md
+        echo "$report_team" >> wiki/pipeline_test.md
 
         # Push changes
         cd wiki
