@@ -21,7 +21,7 @@ jobs:
       if: ${{ always() }}
       run: |
         report_value=$(<test_file.txt)
-        echo 'report_team-$team="$report_value"' >> $GITHUB_ENV
+        echo 'report_team="$report_value"' >> $GITHUB_ENV
 
   # A job to report the test results
   tests-report:
@@ -41,11 +41,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> $GITHUB_STEP_SUMMARY
 
         # Loop through test report files
-        for team in ${{ needs.identify-tests.outputs.teams }}
-        do
-          # Retrieve the report from GITHUB_ENV, as set up by the pytest job
-          echo $(report_team-$team) >> $GITHUB_STEP_SUMMARY
-        done
+        echo $(report_team) >> $GITHUB_STEP_SUMMARY
 
     - name: Checkout wiki
       uses: actions/checkout@v3
@@ -56,18 +52,15 @@ jobs:
     - name: Report results on the project's wiki
       run: |
         # Loop through test report files & write them to the corresponding wiki page
-        for team in ${{ needs.identify-tests.outputs.teams }}
-        do
-          echo "# Correlation values for pipeline $team" > wiki/pipeline_$team.md
-          echo "Unthresholded maps, reproduced vs. results" >> wiki/pipeline_$team.md
-          echo "Correlation values are sorted from hypotheses 1 to 9" >> wiki/pipeline_$team.md
-          echo "These values were calculated by GitHub Actions run [# $GITHUB_RUN_ID]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)" >> wiki/pipeline_$team.md
-          echo "| Team    | Number of subjects | Test status | Correlation values |" >> wiki/pipeline_$team.md
-          echo "| -------- | ------- | ------- | ------- |" >> wiki/pipeline_$team.md
+        echo "# Correlation values for pipeline TEST" > wiki/pipeline_test.md
+        echo "Unthresholded maps, reproduced vs. results" >> wiki/pipeline_test.md
+        echo "Correlation values are sorted from hypotheses 1 to 9" >> wiki/pipeline_test.md
+        echo "These values were calculated by GitHub Actions run [# $GITHUB_RUN_ID]($GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID)" >> wiki/pipeline_test.md
+        echo "| Team    | Number of subjects | Test status | Correlation values |" >> wiki/pipeline_test.md
+        echo "| -------- | ------- | ------- | ------- |" >> wiki/pipeline_test.md
 
-          # Retrieve the report from GITHUB_ENV, as set up by the pytest job
-          echo $(report_team-$team) >> wiki/pipeline_$team.md
-        done
+        # Retrieve the report from GITHUB_ENV, as set up by the pytest job
+        echo $(report_team) >> wiki/pipeline_test.md
 
         # Push changes
         cd wiki
