@@ -13,18 +13,21 @@ jobs:
   # A job to run the tests
   pytest:
     runs-on: ubuntu-latest
+    outputs:
+      report_team: ${{ steps.report.outputs.report_team }}
     steps:
     - name: Checkout PR branch
       uses: actions/checkout@v3
 
     - name: Export test results
       if: ${{ always() }}
+      id: report
       run: |
         {
           echo "report_team<<EOF"
           cat test_file.txt
           echo EOF
-        } >> "$GITHUB_ENV"
+        } >> "$GITHUB_OUTPUT"
         echo ${{ env.report_team }}
 
   # A job to report the test results
@@ -45,7 +48,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> $GITHUB_STEP_SUMMARY
 
         # Loop through test report files
-        echo "$report_team" >> $GITHUB_STEP_SUMMARY
+        echo ${{ needs.pytest.outputs.report_team }} >> $GITHUB_STEP_SUMMARY
 
     - name: Checkout wiki
       uses: actions/checkout@v3
@@ -64,7 +67,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> wiki/pipeline_test.md
 
         # Retrieve the report from GITHUB_ENV, as set up by the pytest job
-        echo "$report_team" >> wiki/pipeline_test.md
+        echo ${{ needs.pytest.outputs.report_team }} >> wiki/pipeline_test.md
 
         # Push changes
         cd wiki
