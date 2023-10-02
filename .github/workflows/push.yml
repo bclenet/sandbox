@@ -25,7 +25,7 @@ jobs:
           cat test_file.txt
           echo EOF
         } >> "$GITHUB_ENV"
-        echo "$report_team"
+        echo ${{ env.report_team }}
 
   # A job to report the test results
   tests-report:
