@@ -20,10 +20,9 @@ jobs:
     - name: Export test results
       if: ${{ always() }}
       run: |
-        report_value=$(<test_file.txt)
         {
           echo "report_team<<EOF"
-          echo "$report_value"
+          cat test_file.txt
           echo EOF
         } >> "$GITHUB_ENV"
         echo "$report_team"
