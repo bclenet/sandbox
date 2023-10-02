@@ -20,8 +20,8 @@ jobs:
     - name: Export test results
       if: ${{ always() }}
       run: |
-        report_value=$(<test_file.txt)
-        echo "report_team-$team='$report_value'" >> $GITHUB_ENV
+        report_value="$(<test_file.txt)"
+        echo "report_team-$team=$report_value" >> $GITHUB_ENV
 
   # A job to report the test results
   tests-report:
