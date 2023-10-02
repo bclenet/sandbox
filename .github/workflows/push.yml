@@ -22,6 +22,7 @@ jobs:
       run: |
         report_value=$(<test_file.txt)
         echo 'report_team="$report_value"' >> $GITHUB_ENV
+        echo "$report_team"
 
   # A job to report the test results
   tests-report:
