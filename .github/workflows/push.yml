@@ -19,16 +19,11 @@ jobs:
     - name: Checkout PR branch
       uses: actions/checkout@v3
 
-    - name: Export test results
-      if: ${{ always() }}
-      id: report
-      run: |
-        {
-          echo "report_team<<EOF"
-          <test_file.txt
-          echo EOF
-        } >> "$GITHUB_OUTPUT"
-        echo ${{ env.report_team }}
+    - name: Cache result file
+      uses: actions/cache@v3
+      with:
+        key: cache-results
+        path: test_file.txt
 
   # A job to report the test results
   tests-report:
@@ -36,6 +31,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ always() }}
     steps:
+    - name: Restore cache result file
+      uses: actions/cache@v3
+      with:
+        key: cache-results
+
     - name: Report results on step summary
       run: |
         # Start report
@@ -48,7 +48,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> $GITHUB_STEP_SUMMARY
 
         # Loop through test report files
-        echo ${{ needs.pytest.outputs.report_team }} >> $GITHUB_STEP_SUMMARY
+        cat test_file.txt >> $GITHUB_STEP_SUMMARY
 
     - name: Checkout wiki
       uses: actions/checkout@v3
@@ -67,7 +67,7 @@ jobs:
         echo "| -------- | ------- | ------- | ------- |" >> wiki/pipeline_test.md
 
         # Retrieve the report from GITHUB_ENV, as set up by the pytest job
-        echo ${{ needs.pytest.outputs.report_team }} >> wiki/pipeline_test.md
+        cat test_file.txt >> wiki/pipeline_test.md
 
         # Push changes
         cd wiki
