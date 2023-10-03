@@ -22,7 +22,7 @@ jobs:
     - name: Cache result file
       uses: actions/cache@v3
       with:
-        key: cache-results
+        key: cache-${{github.run_id}}
         path: test_file.txt
 
   # A job to report the test results
@@ -34,7 +34,7 @@ jobs:
     - name: Restore cache result file
       uses: actions/cache@v3
       with:
-        key: cache-results
+        key: cache-${{github.run_id}}
         path: test_file.txt
 
     - name: Report results on step summary
