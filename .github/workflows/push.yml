@@ -23,7 +23,7 @@ jobs:
       uses: actions/cache@v3
       with:
         key: cache-${{github.run_id}}
-        path: test_file.txt
+        path: test_file*
 
   # A job to report the test results
   tests-report:
@@ -35,7 +35,7 @@ jobs:
       uses: actions/cache@v3
       with:
         key: cache-${{github.run_id}}
-        path: test_file.txt
+        path: test_file*
 
     - name: Report results on step summary
       run: |
@@ -50,6 +50,7 @@ jobs:
 
         # Loop through test report files
         cat test_file.txt >> $GITHUB_STEP_SUMMARY
+        cat test_file_2.txt >> $GITHUB_STEP_SUMMARY
 
     - name: Checkout wiki
       uses: actions/checkout@v3
@@ -69,6 +70,7 @@ jobs:
 
         # Retrieve the report from GITHUB_ENV, as set up by the pytest job
         cat test_file.txt >> wiki/pipeline_test.md
+        cat test_file_2.txt >> wiki/pipeline_test.md
 
         # Push changes
         cd wiki
